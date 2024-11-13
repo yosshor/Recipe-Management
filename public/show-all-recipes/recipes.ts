@@ -295,6 +295,11 @@ function searchRecipes() {
   fetch(`/api/recipe/search?query=${searchValue}`)
     .then((response) => response.json())
     .then((recipes) => {
+      if(recipes.length === 0){
+        console.log("No recipes found with these recipe name");
+        const errorLabel = document.getElementById("search-input-recipe-error") as HTMLLabelElement;
+        errorLabel.textContent = "No recipes found";
+      }
       displayRecipes(recipes);
     })
     .catch((error) => console.error("Error searching recipes", error));
@@ -312,6 +317,11 @@ function searchRecipesIngredients() {
   fetch(`/api/recipe/searchIngredients?query=${searchValue}`)
     .then((response) => response.json())
     .then((recipes) => {
+      if(recipes.length === 0){
+        console.log("No recipes found with these ingredients");
+        const errorLabel = document.getElementById("search-input-ingredients-error") as HTMLLabelElement;
+        errorLabel.textContent = "No recipes found with these ingredients";
+      }
       displayRecipes(recipes);
     })
     .catch((error) => console.error("Error searching recipes", error));

@@ -219,15 +219,15 @@ $card-hover-shadow-color: rgba(0, 0, 0, 0.2);
   color: black;
 }
 
-#select-category{
+#select-category {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
   margin-bottom: 20px;
   width: 80%;
   border-radius: 15px;
   height: 30px;
+
   select {
     width: 150px;
     padding: 10px;
@@ -235,4 +235,12 @@ $card-hover-shadow-color: rgba(0, 0, 0, 0.2);
     border-radius: $input-border-radius;
     margin-right: 10px;
   }
+}
+
+#search-input-recipe-error,
+#search-input-ingredients-error {
+  color: red;
+  font-size: 0.8em;
+  margin-bottom: 10px;
+  display: flex;
 }
