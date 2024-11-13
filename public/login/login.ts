@@ -30,9 +30,10 @@ async function login(username: string, email:string, password: string): Promise<
       window.location.href = "../show-all-recipes/index.html";
     } else {
       console.log(response);
-      alert("Sign-in failed");
+      Swal.fire("SignIn", "Sign-in failed! Please Try Again", "warning");
     }
   } catch (error) {
+    Swal.fire("Failed", error, "warning");
     console.error(error);
   }
 }
