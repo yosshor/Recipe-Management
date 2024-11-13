@@ -218,3 +218,21 @@ $card-hover-shadow-color: rgba(0, 0, 0, 0.2);
   font-size: 2em;
   color: black;
 }
+
+#select-category{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 80%;
+  border-radius: 15px;
+  height: 30px;
+  select {
+    width: 150px;
+    padding: 10px;
+    border: 1px solid $card-border-color;
+    border-radius: $input-border-radius;
+    margin-right: 10px;
+  }
+}
