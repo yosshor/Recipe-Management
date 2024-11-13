@@ -289,6 +289,8 @@ function searchRecipes() {
   ) as HTMLInputElement;
   const searchValue = searchInput.value;
   if (searchValue === "") {
+    const errorLabel = document.getElementById("search-input-recipe-error") as HTMLLabelElement;
+    errorLabel.textContent = "";
     fetchRecipes();
     return;
   }
@@ -311,6 +313,8 @@ function searchRecipesIngredients() {
   ) as HTMLInputElement;
   const searchValue = searchInput.value;
   if (searchValue === "") {
+    const errorLabel = document.getElementById("search-input-ingredients-error") as HTMLLabelElement;
+    errorLabel.textContent = "";
     fetchRecipes();
     return;
   }

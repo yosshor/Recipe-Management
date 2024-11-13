@@ -60,9 +60,10 @@ async function registerUser(
         document.cookie = `auth=${token}; path=/`;
         window.location.href = "../recipe/index.html";
       } else {
-        alert("Failed to upload profile picture");
+        Swal.fire("Upload Image", "Failed to upload profile picture!", "warning");
       }
     } else {
+      Swal.fire("User Exists", "User already exists, please login!", "warning");
       console.error("User already exists, please try again");
     }
   } catch (error) {
