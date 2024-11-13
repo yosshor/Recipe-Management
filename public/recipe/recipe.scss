@@ -1,0 +1,132 @@
+// Variables
+$primary-color: #4CAF50;
+$secondary-color: #f4f4f4;
+$text-color: #333;
+$header-height: 60px;
+$button-bg-color: #4CAF50;
+$button-text-color: #fff;
+$button-hover-bg-color: darken($button-bg-color, 10%);
+$form-bg-color: #fff;
+$form-border-color: #ddd;
+$form-padding: 20px;
+$form-margin: 20px 0;
+$input-padding: 10px;
+$input-border-color: #ccc;
+$input-border-radius: 4px;
+
+// Global styles
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: $secondary-color;
+  color: $text-color;
+}
+
+header {
+  background-color: $primary-color;
+  color: $button-text-color;
+  height: $header-height;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+
+  h1 {
+    margin: 0;
+  }
+
+  #user-actions {
+    button, i {
+      background-color: $button-bg-color;
+      color: $button-text-color;
+      border: none;
+      padding: 10px 20px;
+      border-radius: $input-border-radius;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $button-hover-bg-color;
+      }
+    }
+  }
+}
+
+#content {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  
+  
+  form#new-recipe {
+    background-color: $form-bg-color;
+    border: 1px solid $form-border-color;
+    border-radius: $input-border-radius;
+    padding: $form-padding;
+    margin: $form-margin;
+    width: 70%;
+
+    h2 {
+      margin-top: 0;
+    }
+
+    div {
+      margin-bottom: 15px;
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      textarea,
+      select ,option{
+        width: 90%;
+        padding: $input-padding;
+        border: 1px solid $input-border-color;
+        border-radius: $input-border-radius;
+      }
+    }
+
+    button[type="submit"] {
+      background-color: $button-bg-color;
+      color: $button-text-color;
+      border: none;
+      padding: 10px 20px;
+      border-radius: $input-border-radius;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $button-hover-bg-color;
+      }
+    }
+  }
+
+  #recipes {
+    h2 {
+      margin-top: 0;
+    }
+
+    button#get-recipes {
+      background-color: $button-bg-color;
+      color: $button-text-color;
+      border: none;
+      padding: 10px 20px;
+      border-radius: $input-border-radius;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $button-hover-bg-color;
+      }
+    }
+
+    #recipes-list {
+      margin-top: 20px;
+    }
+  }
+}
+
+.image-label-input{
+  display: flex;
+  flex-direction: row;
+}

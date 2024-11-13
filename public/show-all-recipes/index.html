@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Recipes</title>
+    <link rel="stylesheet" href="./dist/recipes.css?v=1.0" />
+  </head>
+  <body onload="fetchRecipes()">
+    <header>
+      <div id="title">
+        <h1>All Recipes</h1>
+      </div>
+      <div id="user-actions">
+        <button
+          id="add-recipe"
+          onclick='window.location.href = "../recipe/index.html"'
+        >
+          Add New Recipe
+        </button>
+        <button id="log-out" onclick="handleLogOut(event)">Log Out</button>
+      </div>
+    </header>
+    <div id="content">
+      <div id="search-bar">
+        <div id="search">
+          <label for="search-input">Search by recipe name</label>
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search by recipe name"
+            oninput="searchRecipes()"
+          />
+        </div>
+        <div id="search">
+          <label for="search-input">Search by recipe name</label>
+          <input
+            type="text"
+            id="search-ingredients-input"
+            placeholder="Search by recipe ingredients name"
+            oninput="searchRecipesIngredients()"
+          />
+        </div>
+        <div id="search">
+          <label for="search-input">Search by Category</label>
+          <select
+            id="select-category"
+            onchange="searchRecipesCategory()"
+          >
+            <!-- <option value="">Select Category</option> -->
+          </select>
+          <!-- <input
+            type="text"
+            id="search-category-input"
+            placeholder="Search by recipe category"
+            oninput="searchRecipesCategory()"
+          /> -->
+        </div>
+      </div>
+
+      <div id="recipes-list"></div>
+    </div>
+    <script src="./dist/recipes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Recipe Management</title>
+    <link rel="stylesheet" href="./dist/login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div id="title">
+        <h1>Recipe Management</h1>
+      </div>
+      <div id="user-actions">
+        <i
+          onclick="window.location.href = '../index.html'"
+          class="fas fa-house"
+        ></i>
+      </div>
+    </header>
+    <div id="auth-forms">
+      <form id="sign-in-form" onsubmit="handleSubmit(event)">
+        <h2>Sign In</h2>
+        <input
+          type="text"
+          name="username"
+          id="sign-in-username"
+          placeholder="Username"
+        />
+        <input
+          type="text"
+          name="email"
+          id="sign-in-email"
+          placeholder="Email"
+        />
+        <input
+          type="password"
+          name="password"
+          id="sign-in-password"
+          placeholder="Password"
+        />
+        <button type="submit" id="sign-in">Sign In</button>
+      </form>
+    </div>
+    <script src="./dist/login.js"></script>
+  </body>
+</html>

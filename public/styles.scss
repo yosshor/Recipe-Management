@@ -1,0 +1,91 @@
+$primary-color: #3897f0;
+$secondary-color: #262626;
+$background-color: #fafafa;
+$border-color: #dbdbdb;
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: $background-color;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: $primary-color;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#user-actions button {
+  background-color: white;
+  color: $primary-color;
+  border: 1px solid $primary-color;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+#user-actions button:hover {
+  background-color: $primary-color;
+  color: white;
+}
+
+#auth-forms {
+  padding: 20px;
+}
+
+#auth-forms div {
+  background-color: white;
+  border: 1px solid $border-color;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+#auth-forms input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid $border-color;
+}
+
+#auth-forms button {
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#auth-forms button:hover {
+  background-color: darken($primary-color, 10%);
+}
+
+#content {
+  padding: 20px;
+}
+
+#new-post, #posts {
+  background-color: white;
+  border: 1px solid $border-color;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+#new-post textarea, #new-post input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#new-post button, #posts button {
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#new-post button:hover, #posts button:hover {
+  background-color: darken($primary-color, 10%);
+}

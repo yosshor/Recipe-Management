@@ -1,0 +1,53 @@
+$primary-color: #3897f0;
+$background-color: #fafafa;
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: $background-color;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: $primary-color;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  i{
+    font-size: 1.6rem;
+    cursor: pointer;
+  }
+}
+
+#auth-forms {
+  padding: 20px;
+}
+
+#sign-in-form {
+  background-color: white;
+  border: 1px solid #dbdbdb;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 300px;
+}
+
+#sign-in-form input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #dbdbdb;
+}
+
+#sign-in-form button {
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#sign-in-form button:hover {
+  background-color: darken($primary-color, 10%);
+}
