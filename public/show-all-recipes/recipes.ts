@@ -1,3 +1,4 @@
+
 interface User {
   fullName: string;
   profilePicture: string;
@@ -332,17 +333,16 @@ function searchRecipesIngredients() {
 }
 
 
-function searchRecipesCategory(){
+function getRecipesDataFromServer(divId:string, url:string) {
   try {
-    const searchInput = document.getElementById("select-category") as HTMLSelectElement;
-    
+    const searchInput = document.getElementById(divId) as HTMLSelectElement;
     const searchValue = searchInput.value;
     if (searchValue === "") {
       fetchRecipes();
       return;
     }
     
-    fetch(`/api/recipe/searchCategory?query=${searchValue}`)
+    fetch(`${url}?query=${searchValue}`)
       .then((response) => response.json())
       .then((recipes) => {
         displayRecipes(recipes);
@@ -351,10 +351,36 @@ function searchRecipesCategory(){
 
   } catch (error) {
     console.error("Error searching recipes", error);
+    Swal.fire("Error", `There was an error searching the recipes => ${error}`, "error");
+
     
   }
 }
 
+function searchRecipesCategory(){
+  try {
+    const divId= "select-category";
+    const url = "/api/recipe/searchCategory";
+    getRecipesDataFromServer(divId, url);
+  } catch (error) {
+    console.error("Error searching recipes", error);
+  }
+}
+
+function selectCookingTimeFiltering(){
+  try {
+      const divId= "select-cooking-time";
+      const url = "/api/recipe/searchCookingTime";
+
+      const searchInput = document.getElementById("select-cooking-time") as HTMLSelectElement;
+      const searchValue = searchInput.value;
+      if (searchValue === "") {
+        fetchRecipes();
+        return;
+      }
+  } catch (error) {
+    
+  }}
 
 async function updateRecipe(recipeId: string) {
   await handleUpdateRecipe(recipeId);
