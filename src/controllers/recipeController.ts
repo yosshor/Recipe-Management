@@ -183,6 +183,27 @@ export const searchRecipesCategory = async (
   }
 };
 
+export const searchRecipesCookingTime = async (
+  req: any,
+  res: any
+): Promise<void> => {
+  try {
+    const { query } = req.query;
+    const recipes = await Recipe.find({
+      cookingTime: { $regex: query, $options: "i" },
+    })
+      .populate("user")
+      .populate({
+        path: "comments",
+        populate: { path: "userId" },
+      })
+      .populate("likes");
+    res.status(200).json(recipes);
+  } catch (error) {
+    console.error("Error fetching recipes:", error);
+    res.status(500).json({ error: "Failed to fetch recipes" });
+  }
+};
 
 export const likeRecipe = async (req: any, res: any): Promise<void> => {
   try {

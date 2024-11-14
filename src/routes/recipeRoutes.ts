@@ -10,6 +10,7 @@ import {
   getRecipeData,
   updateRecipe,
   searchRecipesCategory,
+  searchRecipesCookingTime,
 } from "../controllers/recipeController";
 import multer from "multer";
 
@@ -32,6 +33,7 @@ router.post("/:id/comment",recipeMiddleware, addComment);
 router.get("/search", recipeMiddleware, searchRecipes);
 router.get("/searchIngredients", recipeMiddleware, searchRecipesIngredients);
 router.get("/searchCategory", recipeMiddleware, searchRecipesCategory);
+router.get("/searchCookingTime", recipeMiddleware, searchRecipesCookingTime);
 
 router.delete("/:Id/delete", recipeMiddleware, deleteRecipe);
 
