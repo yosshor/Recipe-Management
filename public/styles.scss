@@ -66,19 +66,22 @@ header {
   padding: 20px;
 }
 
-#new-post, #posts {
+#new-post,
+#posts {
   background-color: white;
   border: 1px solid $border-color;
   padding: 20px;
   margin-bottom: 20px;
 }
 
-#new-post textarea, #new-post input {
+#new-post textarea,
+#new-post input {
   width: 100%;
   margin-bottom: 10px;
 }
 
-#new-post button, #posts button {
+#new-post button,
+#posts button {
   background-color: $primary-color;
   color: white;
   border: none;
@@ -86,6 +89,31 @@ header {
   cursor: pointer;
 }
 
-#new-post button:hover, #posts button:hover {
+#new-post button:hover,
+#posts button:hover {
   background-color: darken($primary-color, 10%);
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  height: 80vh;
+  h1{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 8rem;
+  }
+  .img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    width: 80%;
+    height: 100%;
+
+  }
+
 }
