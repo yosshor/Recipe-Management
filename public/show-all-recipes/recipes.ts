@@ -61,11 +61,12 @@ async function displayRecipes(recipes: Recipe[]) {
       "Content-Type": "application/json",
     },
   });
+
   const {userId, userData} = await user.json();
   const recipesList = document.getElementById("recipes-list")!;
   
   getSelectCategoriesRecipe();
-
+  getSelectCookingTimeRecipe(); 
   recipesList.innerHTML = "";
 
   recipes.forEach((recipe) => {
@@ -371,13 +372,9 @@ function selectCookingTimeFiltering(){
   try {
       const divId= "select-cooking-time";
       const url = "/api/recipe/searchCookingTime";
+      getRecipesDataFromServer(divId, url);
 
-      const searchInput = document.getElementById("select-cooking-time") as HTMLSelectElement;
-      const searchValue = searchInput.value;
-      if (searchValue === "") {
-        fetchRecipes();
-        return;
-      }
+
   } catch (error) {
     
   }}
@@ -413,6 +410,29 @@ async function getSelectCategoriesRecipe(){
       option.value = category;
       option.textContent = category;
       selectCategories.appendChild(option);
+    });
+
+  } catch (error) {
+    console.error("Error getting categories", error);
+  }
+}
+
+async function getSelectCookingTimeRecipe(){
+  try {
+    const selectCookingTime = document.getElementById("select-cooking-time") as HTMLSelectElement;
+    selectCookingTime.innerHTML = "<option value=''>Select Cooking Time</option>";
+    const request = await fetch("/api/recipe/get-all");
+    const recipes = await request.json();
+
+    const cookingTime = new Set<string>();
+    recipes.forEach((recipe) => cookingTime.add(recipe.cookingTime));  
+  
+    cookingTime.forEach(cooking => {
+      if(cooking === "") return;
+      const option = document.createElement("option");
+      option.value = cooking;
+      option.textContent = cooking;
+      selectCookingTime.appendChild(option);
     });
 
   } catch (error) {

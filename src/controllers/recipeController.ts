@@ -38,13 +38,19 @@ export const createRecipe = async (req: any, res: any) => {
   }
 };
 
-
 export const updateRecipe = async (req: any, res: any) => {
   try {
-
     const { userId, userData } = getUserIdAndData(req);
     console.log("updateRecipe");
-    const {title,instructions,ingredients,cookingTime,servingSize,category,image,} = req.body;
+    const {
+      title,
+      instructions,
+      ingredients,
+      cookingTime,
+      servingSize,
+      category,
+      image,
+    } = req.body;
     const recipe = await Recipe.findById(req.body.recipeId);
     if (!recipe) {
       return res.status(404).json({ error: "Recipe not found" });
@@ -61,7 +67,6 @@ export const updateRecipe = async (req: any, res: any) => {
     recipe.image = image;
     await recipe.save();
     res.status(200).send(recipe);
-
   } catch (err: any) {
     console.error(err.message);
     res.status(500).json({ error: err.message });
@@ -189,8 +194,12 @@ export const searchRecipesCookingTime = async (
 ): Promise<void> => {
   try {
     const { query } = req.query;
+    const cookingTime = parseInt(query, 10);
+    if (isNaN(cookingTime)) {
+      return res.status(400).json({ error: "Invalid cooking time" });
+    }
     const recipes = await Recipe.find({
-      cookingTime: { $regex: query, $options: "i" },
+      cookingTime: cookingTime,
     })
       .populate("user")
       .populate({
